@@ -1,5 +1,5 @@
 # ── DataMorph — PDF to Excel Converter ──
-# Dockerfile for Render / container deployment
+# Dockerfile for Hugging Face Spaces (Docker SDK)
 # Uses Node 20 with system libs for canvas + Tesseract OCR
 
 FROM node:20-slim
@@ -34,14 +34,14 @@ COPY server.js ./
 COPY public/ ./public/
 COPY eng.traineddata ./
 
-# Create required directories
-RUN mkdir -p uploads outputs debug
+# Create required directories & set permissions for HF Spaces (non-root)
+RUN mkdir -p uploads outputs debug && chmod -R 777 uploads outputs debug
 
-# Expose port
-EXPOSE 8080
+# Expose port (Hugging Face Spaces expects 7860)
+EXPOSE 7860
 
 # Set environment
-ENV PORT=8080
+ENV PORT=7860
 ENV NODE_ENV=production
 
 # Start the application
