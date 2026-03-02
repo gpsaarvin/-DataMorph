@@ -32,7 +32,6 @@ RUN npm ci --omit=dev
 # Copy application code
 COPY server.js ./
 COPY public/ ./public/
-COPY eng.traineddata ./
 
 # Create required directories & set permissions for HF Spaces (non-root)
 RUN mkdir -p uploads outputs debug && chmod -R 777 uploads outputs debug

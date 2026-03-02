@@ -1,4 +1,6 @@
 node_modules/
+eng.traineddata
+public/logo.png
 uploads/
 debug/
 *.xlsx
