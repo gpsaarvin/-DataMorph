@@ -25,7 +25,7 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // ── Directories ────────────────────────────────────────────────
 const uploadsDir = path.join(__dirname, 'uploads');
@@ -640,11 +640,11 @@ app.use((err, _req, res, _next) => {
 });
 
 // ── Start ──────────────────────────────────────────────────────
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`
   ========================================
-    DataMorphp - PDF to Excel Converter
-    Server running: http://localhost:${PORT}
+    DataMorph - PDF to Excel Converter
+    Server running: http://0.0.0.0:${PORT}
     OCR-Powered for Zoho/SRM PDFs
   ========================================
   `);

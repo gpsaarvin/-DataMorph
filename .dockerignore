@@ -1,0 +1,11 @@
+# .dockerignore — exclude from Docker build
+node_modules
+.git
+debug
+uploads
+outputs
+*.xlsx
+*.log
+.gitignore
+README.md
+fly.toml

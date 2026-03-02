@@ -1,0 +1,13 @@
+# render.yaml — Render Blueprint for DataMorph
+services:
+  - type: web
+    name: datamorph-pdf-to-excel
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: NODE_ENV
+        value: production
